@@ -1,0 +1,38 @@
+body {
+    line-height: 1.5;
+    letter-spacing: .5px;
+
+}
+.content{
+    height: 100vh;
+}
+.home_title{
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+span{
+    font-family: "Reenie Beanie", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+}
+@media screen and (max-width: 2500px){
+    .home_title{
+        font-size: 10rem;
+    }
+}
+@media screen and (max-width: 992px) {
+    .home_title{
+        font-size: 7rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .home_title{
+        font-size: 4rem;
+    }
+    span{
+        font-size: 2rem;
+    }
+}

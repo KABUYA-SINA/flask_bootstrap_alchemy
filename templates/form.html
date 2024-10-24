@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Form
+    {% endblock %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages() %}
+        {%if messages %}
+            {%for message in messages %}
+                <p class="text-center">{{message}}</p>
+            {% endfor %}
+        {%endif%}
+    {% endwith %}
+
+    <form action="#" method="post" class="d-flex align-items-center justify-content-center flex-column h-100">
+        <label for="email">email :</label>
+        <input type="email" name="email" placeholder="enter email" value="{{email if email else ''}}" required />
+        <br />
+        <input type="submit" value="submit" />
+    </form>
+
+{% endblock %}

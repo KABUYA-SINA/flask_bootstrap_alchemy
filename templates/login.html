@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        Login
+    {% endblock %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages() %}
+        {%if messages %}
+            {%for message in messages %}
+                <p class="text-center">{{message}}</p>
+            {% endfor %}
+        {%endif%}
+    {% endwith %}
+
+    <div class="d-flex align-items-center justify-content-center flex-column h-100">
+        <h2>Loggin</h2>
+        <form action="#" method="post">
+            <label for="username">Name :</label><br>
+            <input type="text" name="username" required placeholder="name" />
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+
+{% endblock %}
