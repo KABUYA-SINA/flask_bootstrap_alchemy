@@ -24,6 +24,12 @@ def __init__(self, name, email):
         self.name = name
         self.email = email
 
+@app.context_processor
+def inject_user():
+    user = None
+    if "username" in session:
+        user = User.query.filter_by(name=session['username']).first()
+    return dict(user=user)
 
 @app.route("/")
 def home():
@@ -92,10 +98,13 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/all')
-def all():
-    users = User.query.all()
-    return  render_template('display.html', values=users)
-
+def all_users():
+    if "username" in session:
+        users = User.query.all()
+        return render_template('display.html', values=users)
+    else:
+        flash("You need to log in to access this page!", "danger")
+        return redirect(url_for('login'))
 
 if __name__ == "__main__":
     with app.app_context():

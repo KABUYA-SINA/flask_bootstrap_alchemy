@@ -27,18 +27,28 @@
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
+                            <a class="nav-link text-center" href="/about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
+                            <a class="nav-link text-center" href="/contact">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
+                        {% if not user or not user.name or not user.email %}
+                            <li class="nav-item">
+                                <a class="nav-link bg-dark text-light text-center" href="/login" >Login</a>
+                            </li>
+                        {% endif %}
+                        {% if user.name and user.email %}
+                            <li class="nav-item">
+                                <a class="nav-link bg-success p-2 text-white text-center" href="/all">Data</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bg-dark bg-gradient text-light text-center" href="/logout">Logout</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </nav>
             </header>
-            <main class="container-fluid h-100">
+            <main class="container-fluid h-100 overflow-scroll">
                 {% block content %}
                 {% endblock %}
             </main>

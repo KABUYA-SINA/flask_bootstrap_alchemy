@@ -1,10 +1,10 @@
 body {
     line-height: 1.5;
     letter-spacing: .5px;
-
 }
 .content{
     height: 100vh;
+    background: linear-gradient(352deg, rgba(237, 16, 16, 1) 0%, rgba(253, 253, 255, 1) 36%, rgba(199, 217, 221, 1) 100%);
 }
 .home_title{
     font-family: "Shrikhand", serif;
